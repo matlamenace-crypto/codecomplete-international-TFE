@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeComplete International — Partenaire de développement logiciel pour les marchés mondiaux</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple: #5B47E0;
+  --purple-light: #F0EFFE;
+  --purple-mid: #DDD9FB;
+  --dark: #111118;
+  --text: #1F1F2E;
+  --muted: #6B7280;
+  --light: #F9F9FC;
+  --border: #E4E4EF;
+  --white: #FFFFFF;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  height: 68px;
+  display: flex;
+  align-items: center;
+  padding: 0 72px;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  background: var(--purple);
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  color: white;
+  font-size: 13px;
+}
+
+.logo-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--dark);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+
+.nav-links a:hover { color: var(--dark); }
+.nav-links a.active { color: var(--dark); font-weight: 600; }
+
+.btn-contact {
+  background: var(--purple);
+  color: white !important;
+  padding: 9px 22px;
+  border-radius: 7px;
+  font-weight: 600 !important;
+  transition: opacity 0.15s !important;
+}
+.btn-contact:hover { opacity: 0.88 !important; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--dark);
+  position: relative;
+  overflow: hidden;
+  padding: 96px 72px 0;
+  min-height: 560px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600&q=80') center/cover no-repeat;
+  opacity: 0.18;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(91,71,224,0.85) 0%, rgba(17,17,24,0.92) 60%);
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.85);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 100px;
+  margin-bottom: 28px;
+}
+
+.hero-label span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6BCB77;
+  display: inline-block;
+}
+
+.hero h1 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(34px, 4.6vw, 68px);
+  font-weight: 800;
+  color: white;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+  max-width: 900px;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: rgba(255,255,255,0.4);
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  max-width: 580px;
+  line-height: 1.75;
+  margin-bottom: 48px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 36px;
+  padding-bottom: 56px;
+}
+
+.hero-stat {
+  flex: 1;
+  padding-right: 36px;
+  margin-right: 36px;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-stat:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.hero-stat-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.04em;
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ── SECTION COMMONS ── */
+.section-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 10px;
+}
+
+.section-heading {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.section-sub {
+  font-size: 15.5px;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 560px;
+}
+
+/* ── HOW WE WORK ── */
+.how-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.how-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.how-card {
+  background: var(--white);
+  padding: 36px 30px;
+  transition: background 0.2s;
+}
+
+.how-card:hover { background: var(--light); }
+
+.how-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--purple);
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  opacity: 0.7;
+}
+
+.how-icon {
+  font-size: 26px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.how-card h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.how-card p {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── CASE STUDIES ── */
+.cs-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cs-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.link-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap 0.15s;
+}
+
+.link-all:hover { gap: 10px; }
+
+.cs-featured {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.cs-featured:hover {
+  box-shadow: 0 16px 48px rgba(91,71,224,0.1);
+  border-color: var(--purple-mid);
+}
+
+.cs-featured-img {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  object-fit: cover;
+  display: block;
+}
+
+.cs-featured-body {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--white);
+}
+
+.cs-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: var(--purple-light);
+  border: 1px solid var(--purple-mid);
+  color: var(--purple);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.tag-dark {
+  background: var(--light);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.cs-featured-body h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 800;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.cs-featured-body p {
+  font-size: 15px;
+  color: #4B5563;
+  line-height: 1.75;
+  margin-bottom: 32px;
+}
+
+.cs-kpis {
+  display: flex;
+  gap: 28px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+
+.cs-kpi-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--purple);
+  display: block;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+.cs-kpi-label {
+  font-size: 11.5px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--purple);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+  align-self: flex-start;
+}
+
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.cs-small-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.cs-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+}
+
+.cs-card:hover {
+  box-shadow: 0 10px 32px rgba(91,71,224,0.1);
+  transform: translateY(-3px);
+  border-color: var(--purple-mid);
+}
+
+.cs-card-img {
+  width: 100%;
+  height: 168px;
+  object-fit: cover;
+  display: block;
+}
+
+.cs-card-body {
+  padding: 22px 22px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-card-meta {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.cs-card h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.cs-card p {
+  font-size: 13.5px;
+  color: #4B5563;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 18px;
+}
+
+.t-tag {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--purple);
+  text-decoration: none;
+  transition: gap 0.15s;
+  margin-top: auto;
+}
+
+.btn-ghost:hover { gap: 9px; }
+
+/* ── NEWS ── */
+.news-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.news-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.news-featured {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-featured:hover {
+  box-shadow: 0 10px 36px rgba(91,71,224,0.09);
+  border-color: var(--purple-mid);
+}
+
+.news-featured-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-featured-body {
+  padding: 28px 28px 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.news-category {
+  background: var(--purple-light);
+  border: 1px solid var(--purple-mid);
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.news-date {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.news-featured-body h3 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--dark);
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin-bottom: 10px;
+}
+
+.news-featured-body p {
+  font-size: 14px;
+  color: #4B5563;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.news-side {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.news-small {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: var(--white);
+}
+
+.news-small:hover {
+  border-color: var(--purple-mid);
+  box-shadow: 0 4px 18px rgba(91,71,224,0.08);
+}
+
+.news-small-img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-small-body {
+  padding: 16px 18px 20px;
+}
+
+.news-small-body .news-meta { margin-bottom: 10px; }
+
+.news-small-body h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark);
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+/* ── PROCESS STRIP ── */
+.process-strip {
+  background: var(--light);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 64px 0;
+}
+
+.process-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 72px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.process-left h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 2.2vw, 30px);
+  color: var(--dark);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.process-left p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.process-step {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  transition: border-color 0.15s;
+}
+
+.process-step:hover { border-color: var(--purple-mid); }
+
+.process-step-num {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--purple);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.7;
+}
+
+.process-step h4 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.process-step p {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── MIKE CTA ── */
+.mike-section {
+  padding: 96px 0;
+}
+
+.mike-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 72px;
+}
+
+.mike-card {
+  background: var(--dark);
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+}
+
+.mike-body {
+  padding: 64px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.mike-eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 14px;
+}
+
+.mike-body h2 {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: clamp(24px, 2.6vw, 36px);
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+.mike-body p {
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.75;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+.mike-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: white;
+  color: var(--purple);
+  padding: 13px 26px;
+  border-radius: 9px;
+  font-size: 14.5px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.btn-white:hover { opacity: 0.92; transform: translateY(-1px); }
+
+.btn-outline-white {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 13px 26px;
+  border-radius: 9px;
+  font-size: 14.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.btn-outline-white:hover {
+  border-color: rgba(255,255,255,0.4);
+  color: white;
+}
+
+/* Mike neutral panel */
+.mike-panel {
+  background: linear-gradient(160deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 36px;
+  gap: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mike-panel::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+}
+
+.mike-panel::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: -30px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+
+.mike-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(91,71,224,0.35);
+  border: 2px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: rgba(255,255,255,0.7);
+  position: relative;
+  z-index: 1;
+}
+
+.mike-info {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.mike-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.mike-title-text {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.mike-langs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: rgba(255,255,255,0.7);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+
+.mike-trust-row {
+  display: flex;
+  gap: 32px;
+  margin-top: 40px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  flex-wrap: wrap;
+}
+
+.mike-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mike-trust-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: rgba(91,71,224,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.mike-trust-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 1px;
+}
+
+.mike-trust-text span {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--dark);
+  padding: 40px 72px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.f-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.f-logo-mark {
+  width: 30px;
+  height: 30px;
+  background: var(--purple);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 800;
+  color: white;
+  font-size: 11px;
+}
+
+.f-logo-name {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: white;
+}
+
+.f-copy {
+  font-size: 13px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav, .hero, footer { padding-left: 32px; padding-right: 32px; }
+  .section-wrap, .process-inner, .mike-inner { padding-left: 32px; padding-right: 32px; }
+  .how-grid { grid-template-columns: repeat(2, 1fr); }
+  .cs-featured { grid-template-columns: 1fr; }
+  .cs-featured-img { min-height: 240px; height: 240px; }
+  .cs-small-grid { grid-template-columns: repeat(2, 1fr); }
+  .news-grid { grid-template-columns: 1fr; }
+  .news-side { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .mike-card { grid-template-columns: 1fr; }
+  .mike-panel { flex-direction: row; padding: 32px 36px; justify-content: flex-start; }
+  .process-inner { grid-template-columns: 1fr; gap: 40px; }
+}
+
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 72px 20px 0; min-height: auto; }
+  .section-wrap, .process-inner, .mike-inner { padding-left: 20px; padding-right: 20px; }
+  footer { padding: 32px 20px; flex-direction: column; gap: 12px; text-align: center; }
+  .cs-featured { grid-template-columns: 1fr; }
+  .cs-small-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .news-side { grid-template-columns: 1fr; }
+  .cs-kpis { flex-direction: column; gap: 16px; }
+  .mike-body { padding: 40px 28px; }
+  .process-steps { grid-template-columns: 1fr; }
+  .mike-trust-row { gap: 20px; }
+  .mike-panel { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="logo" href="https://codecomplete.jp">
+    <div class="logo-mark">CC</div>
+    <div class="logo-name">CodeComplete</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">Accueil</a></li>
+    <li><a href="#">À propos</a></li>
+    <li><a href="#">Solutions</a></li>
+    <li><a href="#">Actualités</a></li>
+    <li><a href="#" class="active">International</a></li>
+    <li><a href="#">Références</a></li>
+    <li><a href="#">Recrutement</a></li>
+    <li><a href="#" class="btn-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-inner">
+    <div class="hero-label">
+      <span></span>
+      Hub International · Da Nang, Vietnam
+    </div>
+    <h1>Votre équipe de développement IT<br><em>au Vietnam — stable, réactive,<br>et qui vous comprend vraiment.</em></h1>
+    <p class="hero-sub">Vous avez un projet IT. Vous voulez une équipe compétente, un interlocuteur qui comprend vos attentes et des livrables qui respectent ce qui a été convenu. C'est exactement ce que nous faisons. <strong style="color:white;font-weight:700;">Chez CodeComplete, un oui est un vrai oui.</strong></p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">10+</span>
+        <span class="hero-stat-label">Années d'expérience</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">130+</span>
+        <span class="hero-stat-label">Ingénieurs</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">42+</span>
+        <span class="hero-stat-label">Projets long terme · <strong style="color:rgba(255,255,255,0.75);font-weight:700;">3 continents</strong></span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">EN</span>
+        <span class="hero-stat-label">Interlocuteur occidental</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HOW WE WORK ── -->
+<section class="how-section">
+  <div class="section-wrap">
+    <div class="how-header">
+      <div>
+        <div class="eyebrow">Notre approche</div>
+        <h2 class="section-heading">Conçue pour les clients occidentaux.<br>Structurée pour durer.</h2>
+      </div>
+      <p class="section-sub">Notre modèle a été façonné par dix ans d'exigence à la japonaise — processus rigoureux, équipes stables et zéro surprise budgétaire. Nous appliquons la même discipline à chaque mission internationale.</p>
+    </div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">01 —</div>
+        <span class="how-icon">🔒</span>
+        <h3>Équipes stables et dédiées</h3>
+        <p>Vous travaillez avec les mêmes ingénieurs du lancement à la livraison. Notre taux de rétention est régulièrement supérieur à la moyenne du marché au Vietnam.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">02 —</div>
+        <span class="how-icon">⚡</span>
+        <h3>Livraison Agile par sprints</h3>
+        <p>Démos bimensuelles, points d'avancement réguliers et une roadmap que vous pilotez. Vous êtes informé à chaque étape, pas seulement à la remise finale.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">03 —</div>
+        <span class="how-icon">🤝</span>
+        <h3>Interlocuteur occidental dédié</h3>
+        <p>Mike Neary gère toutes les conversations business en anglais. Pas de friction linguistique, pas d'intermédiaire — une communication directe et efficace.</p>
+      </div>
+      <div class="how-card">
+        <div class="how-num">04 —</div>
+        <span class="how-icon">📋</span>
+        <h3>Tarification transparente</h3>
+        <p>Un devis clair, sans frais cachés ni avenants surprises. Ce que vous voyez dans l'offre est ce que vous payez, du premier jour au dernier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section class="cs-section">
+  <div class="section-wrap">
+    <div class="cs-header">
+      <div>
+        <div class="eyebrow">Références</div>
+        <h2 class="section-heading">Des projets livrés<br>pour des clients internationaux</h2>
+      </div>
+      <a href="#" class="link-all">Voir toutes les références →</a>
+    </div>
+
+    <!-- Featured -->
+    <div class="cs-featured">
+      <img
+        class="cs-featured-img"
+        src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=800&q=80"
+        alt="Plateforme de courtage d'assurance"
+      />
+      <div class="cs-featured-body">
+        <div>
+          <div class="cs-meta-row">
+            <span class="tag">🇦🇺 Australie</span>
+            <span class="tag-dark">Fintech · Assurance</span>
+          </div>
+          <h3>Plateforme de courtage d'assurance pour une start-up australienne</h3>
+          <p>Développement complet d'une plateforme de souscription et de gestion de contrats en ligne, permettant à un processus entièrement manuel de passer à l'échelle — de la découverte à la mise en production en moins de 16 semaines.</p>
+          <div class="cs-kpis">
+            <div>
+              <span class="cs-kpi-num">60%</span>
+              <span class="cs-kpi-label">Réduction du temps<br>de traitement</span>
+            </div>
+            <div>
+              <span class="cs-kpi-num">16 sem.</span>
+              <span class="cs-kpi-label">De la découverte<br>à la production</span>
+            </div>
+            <div>
+              <span class="cs-kpi-num">6</span>
+              <span class="cs-kpi-label">Ingénieurs<br>dédiés</span>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="btn-primary">Lire l'étude de cas →</a>
+      </div>
+    </div>
+
+    <!-- Small cards -->
+    <div class="cs-small-grid">
+      <div class="cs-card">
+        <img
+          class="cs-card-img"
+          src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80"
+          alt="Plateforme de gestion opérationnelle"
+        />
+        <div class="cs-card-body">
+          <div class="cs-card-meta">
+            <span class="tag">🇦🇺 Australie</span>
+            <span class="tag-dark">Opérations</span>
+          </div>
+          <h4>Plateforme de gestion opérationnelle pour une start-up de services terrain</h4>
+          <p>Outil SaaS centralisant la planification, le suivi terrain et les reportings clients — livré en 14 semaines avec une équipe de 6 ingénieurs, zéro bug critique post-lancement.</p>
+          <div class="tech-row">
+            <span class="t-tag">Vue.js</span>
+            <span class="t-tag">Python</span>
+            <span class="t-tag">Django</span>
+            <span class="t-tag">MySQL</span>
+            <span class="t-tag">Docker</span>
+          </div>
+          <a href="#" class="btn-ghost">Lire l'étude de cas →</a>
+        </div>
+      </div>
+
+      <div class="cs-card">
+        <img
+          class="cs-card-img"
+          src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80"
+          alt="Application mobile B2B Canada"
+        />
+        <div class="cs-card-body">
+          <div class="cs-card-meta">
+            <span class="tag">🇨🇦 Canada</span>
+            <span class="tag-dark">Mobile · B2B</span>
+          </div>
+          <h4>Application mobile B2B multiplateforme pour un client canadien</h4>
+          <p>Application iOS et Android pour les équipes commerciales terrain, avec synchronisation hors ligne et tableaux de bord temps réel — adoptée par 200+ utilisateurs dès le lancement.</p>
+          <div class="tech-row">
+            <span class="t-tag">React Native</span>
+            <span class="t-tag">TypeScript</span>
+            <span class="t-tag">GraphQL</span>
+            <span class="t-tag">Firebase</span>
+          </div>
+          <a href="#" class="btn-ghost">Lire l'étude de cas →</a>
+        </div>
+      </div>
+
+      <div class="cs-card">
+        <img
+          class="cs-card-img"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80"
+          alt="Plateforme analytics SaaS UK"
+        />
+        <div class="cs-card-body">
+          <div class="cs-card-meta">
+            <span class="tag">🇬🇧 Royaume-Uni</span>
+            <span class="tag-dark">Analytics · SaaS</span>
+          </div>
+          <h4>Plateforme analytics SaaS pour une scale-up britannique</h4>
+          <p>Moteur de reporting personnalisé traitant plus de 50 millions d'événements par mois, remplaçant trois outils internes fragmentés par une couche de données unifiée et auditable.</p>
+          <div class="tech-row">
+            <span class="t-tag">Next.js</span>
+            <span class="t-tag">FastAPI</span>
+            <span class="t-tag">PostgreSQL</span>
+            <span class="t-tag">AWS</span>
+          </div>
+          <a href="#" class="btn-ghost">Lire l'étude de cas →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROCESS STRIP ── -->
+<div class="process-strip">
+  <div class="process-inner">
+    <div class="process-left">
+      <div class="eyebrow" style="margin-bottom:10px;">Notre processus</div>
+      <h2>Comment se déroule<br>un projet</h2>
+      <p style="margin-top:14px;">Du premier échange à la remise finale, chaque mission suit la même structure éprouvée — adaptée à vos contraintes, pas aux nôtres.</p>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="process-step-num">Phase 01</div>
+        <h4>Découverte & cadrage</h4>
+        <p>Nous cartographions ensemble vos besoins, vos contraintes techniques et votre calendrier. Sans hypothèses, sans surprises.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">Phase 02</div>
+        <h4>Constitution de l'équipe</h4>
+        <p>Une équipe dédiée est constituée — les mêmes personnes du début à la fin. Vous les rencontrez avant le démarrage des travaux.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">Phase 03</div>
+        <h4>Livraison Agile</h4>
+        <p>Sprints de deux semaines, démos bimensuelles, comptes rendus hebdomadaires. Vous n'attendez jamais un point de situation.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">Phase 04</div>
+        <h4>Remise & support</h4>
+        <p>Documentation complète, transfert de compétences et support post-lancement. Nous ne disparaissons pas après la mise en production.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NEWS ── -->
+<section class="news-section">
+  <div class="section-wrap">
+    <div class="news-header">
+      <div>
+        <div class="eyebrow">Actualités</div>
+        <h2 class="section-heading">Ce qui se passe<br>chez CodeComplete</h2>
+      </div>
+      <a href="#" class="link-all">Toutes les actualités →</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-featured">
+        <img
+          class="news-featured-img"
+          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80"
+          alt="CodeComplete renforce son développement international"
+        />
+        <div class="news-featured-body">
+          <div class="news-meta">
+            <span class="news-category">Entreprise</span>
+            <span class="news-date">Mai 2026</span>
+          </div>
+          <h3>CodeComplete formalise son développement international avec un focus dédié aux marchés européens</h3>
+          <p>Face à une demande croissante en provenance d'Europe et d'Australie, CodeComplete structure son approche des marchés occidentaux — avec un BDM dédié, une bibliothèque d'études de cas internationale et un process de contact entièrement en anglais.</p>
+          <a href="#" class="btn-ghost" style="margin-top:0;">Lire la suite →</a>
+        </div>
+      </div>
+      <div class="news-side">
+        <div class="news-small">
+          <img
+            class="news-small-img"
+            src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=500&q=80"
+            alt="Agile Vietnam 2026"
+          />
+          <div class="news-small-body">
+            <div class="news-meta">
+              <span class="news-category">Événements</span>
+              <span class="news-date">Avr. 2026</span>
+            </div>
+            <h4>CodeComplete à Agile Vietnam 2026 — compte rendu de session</h4>
+            <a href="#" class="btn-ghost">Lire la suite →</a>
+          </div>
+        </div>
+        <div class="news-small">
+          <img
+            class="news-small-img"
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80"
+            alt="IA et qualité du code"
+          />
+          <div class="news-small-body">
+            <div class="news-meta">
+              <span class="news-category">Ingénierie</span>
+              <span class="news-date">Mars 2026</span>
+            </div>
+            <h4>Comment nous intégrons le développement assisté par l'IA sans compromettre la qualité du code</h4>
+            <a href="#" class="btn-ghost">Lire la suite →</a>
+          </div>
+        </div>
+        <div class="news-small">
+          <img
+            class="news-small-img"
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&q=80"
+            alt="Culture d'équipe"
+          />
+          <div class="news-small-body">
+            <div class="news-meta">
+              <span class="news-category">Culture</span>
+              <span class="news-date">Fév. 2026</span>
+            </div>
+            <h4>Pourquoi nos ingénieurs restent — rétention supérieure à la moyenne du secteur, trois ans de suite</h4>
+            <a href="#" class="btn-ghost">Lire la suite →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── MIKE CTA ── -->
+<section class="mike-section">
+  <div class="mike-inner">
+    <div class="mike-card">
+      <div class="mike-body">
+        <div class="mike-eyebrow">Prenez contact</div>
+        <h2>Un projet en tête ?<br>Parlons-en.</h2>
+        <p>Mike Neary, notre Business Development Manager, traite toutes les demandes internationales directement — en anglais, sans intermédiaire. Pas besoin d'un appel d'offres formel pour une première conversation.</p>
+        <div class="mike-actions">
+          <a href="mailto:mike.neary@codecomplete.jp" class="btn-white">Écrire à Mike →</a>
+          <a href="#" class="btn-outline-white">Réserver un appel 30 min</a>
+        </div>
+        <div class="mike-trust-row">
+          <div class="mike-trust-item">
+            <div class="mike-trust-icon">⚡</div>
+            <div class="mike-trust-text">
+              <strong>Réponse sous 24h</strong>
+              <span>Jours ouvrés</span>
+            </div>
+          </div>
+          <div class="mike-trust-item">
+            <div class="mike-trust-icon">🔒</div>
+            <div class="mike-trust-text">
+              <strong>NDA sur demande</strong>
+              <span>Avant tout briefing</span>
+            </div>
+          </div>
+          <div class="mike-trust-item">
+            <div class="mike-trust-icon">🌍</div>
+            <div class="mike-trust-text">
+              <strong>Fuseau UTC+7</strong>
+              <span>Da Nang, Vietnam</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mike-panel">
+        <div class="mike-avatar">MN</div>
+        <div class="mike-info">
+          <div class="mike-name">Mike Neary</div>
+          <div class="mike-title-text">Business Development Manager</div>
+          <div class="mike-langs" style="margin-bottom:16px;">
+            <span class="lang-badge">🇬🇧 Anglais</span>
+          </div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.08em;font-weight:600;margin-bottom:8px;">Notre équipe parle aussi</div>
+          <div class="mike-langs">
+            <span class="lang-badge">🇫🇷 Français</span>
+            <span class="lang-badge">🇯🇵 Japonais</span>
+            <span class="lang-badge">🇻🇳 Vietnamien</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="f-logo">
+    <div class="f-logo-mark">CC</div>
+    <div class="f-logo-name">CodeComplete</div>
+  </div>
+  <div class="f-copy">© 2026 CodeComplete. Tous droits réservés. · Da Nang, Vietnam</div>
+</footer>
+
+</body>
+</html>
